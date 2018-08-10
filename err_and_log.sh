@@ -36,7 +36,7 @@ initLog log.txt
 
 # error handling with log
 uname | grep "$1" \
-  && (level DEBUG | tsLog | withLog "msg=found $1" | log) \
+  && level DEBUG | tsLog | withLog "msg=found $1" | log \
   || {(level ERROR | tsLog | withLog "msg=not found $1" | log); exit 1; }
 
 echo after 
